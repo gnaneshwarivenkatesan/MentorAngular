@@ -1,0 +1,43 @@
+<div>
+  <div class="container" *ngIf="this.mentorService.leng==0; else mentoringDetails" style="text-align: center;">
+    <h3>Welcome!</h3>
+    <h4>There is no ongoing courses. Click register new course to start Mentoring.</h4>
+  </div>
+  <ng-template #mentoringDetails>
+    <div>
+      <h4>Course Details</h4>
+    </div>
+    <div class="filter" style="text-align: right;">
+      <label for="filter">Filter:</label>
+      <select (change)="filterCourse($event.target.value)">
+        <option value="all">All</option>
+        <option value="completed">Completed</option>
+        <option value="inProgress">In Progress</option>
+        <option value="yetToStart">Yet To Start</option>
+      </select>
+    </div>
+
+
+    <div class="container" #mentoringDetails>
+      <table class="table table-striped">
+
+        <thead>
+
+          <tr>
+            <th>Course Id</th>
+            <th>Course Name</th>
+            <th>Learner Name</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let t of filterTraining ">
+            <td>{{t.course_id}}</td>
+            <td>{{t.course_nm}}</td>
+            <td>{{t.learner_nm}}</td>
+            <td>{{t.status}}</td>
+        </tbody>
+      </table>
+    </div>
+  </ng-template>
+</div>

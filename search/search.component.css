@@ -1,0 +1,18 @@
+.form-group{
+    outline-color: green;
+    }
+    .search-container input[type=text]{
+        padding: 6px;
+        margin-top: 8px;
+        font-size: 17px;
+    }
+    .search-container  button {
+        float: right;
+        padding: 6px 10px;
+        margin-top: 8px;
+        margin-right: 16px;
+        
+        font-size: 17px;
+       
+        cursor: pointer;
+      }

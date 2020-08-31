@@ -1,0 +1,43 @@
+<div>
+  <button class="btn btn-primary" type="submit" [routerLink]="['/alreadyRegister']" >Back</button>
+</div>
+
+ <div class="search-container" style="text-align: right;">
+ 
+  <form name="search">
+    <div class="select" style="text-align: right;">
+      <label for="select" >Select New course to Register:</label>
+      <select (change)="search($event.target.value)" >
+        <option *ngFor="let c of catchedCourseName" value={{c.course_nm}} >{{c.course_nm}}</option>
+      </select>
+  </div>
+  <!-- <input type="text" placeholder="Search new course" name="search" [(ngModel)]="letter">
+  
+  <button  type="button" [routerLink]="['/search']" (click)="search()"  ><i class="fa fa-search"></i></button> -->
+</form>
+</div>
+
+<div class="container">     
+  <form >
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th>Course Id</th>
+        <th>Course Name</th>
+        <th>course_desc </th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let c of course ">
+          <td>{{c.course_id}}</td>
+          <td>{{c.course_nm}}</td>
+          
+          <td>{{c.course_desc}}</td>
+          <td> <button Class="btn btn-primary" type="submit" [routerLink]="['/search']" (click)="register(c)">Register</button></td>
+    </tbody>
+  </table>
+</form>   
+</div>
+
+

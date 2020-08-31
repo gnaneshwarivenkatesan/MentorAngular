@@ -1,0 +1,57 @@
+<div>
+  <div class="new" *ngIf="this.mentorService.leng==0; else alreadyRegisteredCourse" style="text-align: center;">
+    <div class="search-container" style="text-align: center;">
+
+      <form name="search" (ngSumbit)="serach()">
+        <div class="select" style="text-align: center;">
+          <label for="select">Select Course to Register:</label>
+          <select (change)="search($event.target.value)">
+            <option *ngFor="let c of catchedCourseName" value={{c.course_nm}} (click)="search(value)">{{c.course_nm}}
+            </option>
+          </select>
+        </div>
+
+      </form>
+    </div>
+  </div>
+  <ng-template #alreadyRegisteredCourse>
+    <div>
+      <h4>Already Registered Course </h4>
+    </div>
+    <div class="search-container" style="text-align: right;">
+
+      <form name="search" (ngSumbit)="serach()">
+        <div class="select" style="text-align: right;">
+          <label for="select">Select New course to Register:</label>
+          <select (change)="search($event.target.value)">
+            <option *ngFor="let c of catchedCourseName" value={{c.course_nm}} (click)="search(value)">{{c.course_nm}}
+            </option>
+          </select>
+        </div>
+
+      </form>
+    </div>
+    <form method="GET">
+      <div class="container">
+        <table class="table table-striped">
+          <thead>
+            <tr>
+              <th>Course Id</th>
+              <th>Course Name</th>
+              <th>course Description </th>
+              <th>Action</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let s of mentorSkills ">
+              <td>{{s.course_id}}</td>
+              <td>{{s.course_nm}}</td>
+
+              <td>{{s.course_desc}}</td>
+              <td><a (click)="onDelete(s)" [routerLink]="['/delete']">Delete</a></td>
+          </tbody>
+        </table>
+      </div>
+    </form>
+  </ng-template>
+</div>
